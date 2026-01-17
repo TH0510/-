@@ -8,27 +8,34 @@
 </head>
 <body>
     <div class="container">
-        <header>
-            <h1>🎯 ゆうちゃんの足し算あそび！</h1>
-        </header>
-
         <div class="game-area">
             <div class="question-section">
-                <h2>ボールは全部でいくつ？</h2>
+                <div class="progress-track" id="progressTrack">
+                    <div class="road"></div>
+                    <div class="road-markers" id="roadMarkers"></div>
+                    <div class="start-label">スタート</div>
+                    <div class="goal-label">ゴール</div>
+                    <div class="dog" id="dog">🐕</div>
+                </div>
                 <div class="box-container">
                     <div class="ball-box" id="ballBox">
                         <div class="box-row top-row" id="topRow"></div>
                         <div class="box-row bottom-row" id="bottomRow"></div>
                     </div>
                 </div>
+                <h2 class="question-text">ぜんぶでいくつ？</h2>
             </div>
 
             <div class="answer-selector">
-                <h2>答えを選んでね</h2>
                 <div class="number-buttons" id="numberButtons"></div>
             </div>
 
             <div class="feedback" id="feedback"></div>
+
+            <div class="completion-screen" id="completionScreen" style="display: none;">
+                <div class="completion-message" id="completionMessage"></div>
+                <button class="btn btn-primary" id="reviewBtn">復習テスト開始</button>
+            </div>
 
             <div class="controls">
                 <button class="btn btn-primary" id="newQuestionBtn">新しい問題</button>
