@@ -23,17 +23,6 @@ body {
     padding: 40px;
 }
 
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-header h1 {
-    color: #667eea;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
 .game-area {
     display: flex;
     flex-direction: column;
@@ -41,16 +30,14 @@ header h1 {
 }
 
 .question-section {
-    background: #f8f9fa;
-    border-radius: 20px;
-    padding: 30px;
     text-align: center;
 }
 
-.question-section h2 {
+.question-text {
     color: #764ba2;
-    margin-bottom: 30px;
+    margin-top: 20px;
     font-size: 2em;
+    font-weight: bold;
 }
 
 .box-container {
@@ -111,21 +98,18 @@ header h1 {
     text-align: center;
 }
 
-.answer-selector h2 {
-    color: #764ba2;
-    margin-bottom: 20px;
-    font-size: 1.8em;
-}
-
 .number-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 10px;
 }
 
 .number-button {
-    width: 120px;
+    width: 100%;
+    max-width: 120px;
     height: 120px;
     border-radius: 50%;
     border: 5px solid #667eea;
@@ -141,6 +125,8 @@ header h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
+    aspect-ratio: 1;
+    margin: 0 auto;
 }
 
 .number-button:hover {
@@ -269,8 +255,9 @@ header h1 {
 
 /* レスポンシブデザイン */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.8em;
+    .container {
+        padding: 20px;
+        border-radius: 20px;
     }
 
     .ball {
@@ -283,15 +270,72 @@ header h1 {
         height: 50px;
     }
 
+    .question-text {
+        font-size: 1.5em;
+        margin-top: 15px;
+    }
+
+    .number-buttons {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+        padding: 0 5px;
+    }
+
     .number-button {
-        width: 90px;
-        height: 90px;
+        width: 100%;
+        max-width: 100px;
+        height: 100px;
         font-size: 2.5em;
         border-width: 4px;
+        aspect-ratio: 1;
     }
 
     .btn {
         font-size: 1.1em;
         padding: 12px 24px;
+    }
+
+    .ball-box {
+        padding: 15px;
+    }
+
+    .box-row {
+        gap: 10px;
+        min-height: 70px;
+    }
+}
+
+/* iPhone縦画面用の最適化 */
+@media (max-width: 480px) and (orientation: portrait) {
+    .container {
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .number-buttons {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+    }
+
+    .number-button {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1;
+        font-size: 2.2em;
+        padding: 0;
+    }
+
+    .question-text {
+        font-size: 1.3em;
+        margin-top: 10px;
+    }
+
+    .ball-box {
+        padding: 10px;
+    }
+
+    .ball, .empty-slot {
+        width: 45px;
+        height: 45px;
     }
 }
